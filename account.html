@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="js/account.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="property-list">
+  <h2>Личный кабинет риелтора</h2>
+  <div>
+    <label for="filter-input">House number:</label>
+    <input type="text" id="filter-input" placeholder="Enter house number"/>
+
+    <button id="sort-asc">Sort by price (low to high)</button>
+    <button id="sort-desc">Sort by price (high to low)</button>
+    <button id="show-form-btn">Add Property</button>
+    <button id="logout">Logout</button>
+  </div>
+
+  <ul id="property-list">
+  </ul>
+
+  <div id="property-form-wrapper" class="hidden">
+    <button id="close-form-button">&times;</button>
+  <form id="property-form">
+    <label for="property-name">Название:</label>
+    <input type="text" id="property-name" name="name" required><br>
+
+    <label for="property-address">Адресс:</label>
+    <input type="text" id="property-address" name="address" required><br>
+
+    <label for="property-price">Цена:</label>
+    <input type="text" id="property-price" name="price" required><br>
+
+    <label for="property-description">Описание:</label>
+    <textarea id="property-description" name="description"></textarea><br>
+
+    <label for="property-image">Картинки:</label>
+    <input type="file" id="property-image" name="image" multiple><br>
+
+    <input type="submit" value="Submit">
+  </form>
+  </div>
+</div>
+
+</body>
+</html>
