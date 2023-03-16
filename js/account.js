@@ -1,5 +1,10 @@
 var xhr = new XMLHttpRequest();
 const token = localStorage.getItem('token');
+
+function editProp(event) {
+
+}
+
 window.onload = function () {
      var showFormBtn = document.getElementById('show-form-btn');
      var propertyForm = document.getElementById('property-form-wrapper');
@@ -7,7 +12,10 @@ window.onload = function () {
      var closeFormBtn = document.getElementById('close-form-button');
      var addPropertyBtn = document.getElementById('property-form');
      var logoutBtn = document.getElementById('logout');
-     
+     var editBtn = document.getElementById('edit-button');
+
+     editBtn.addEventListener('click', editProp(event));
+
      logoutBtn.addEventListener('click', function () {
          localStorage.removeItem('token');
          window.location.href = '/realestate/login.html';
@@ -91,6 +99,10 @@ xhr.onload = function() {
         placeProps(properties, propertyList);
     }
 };
+xhr.open('POST', 'get_properties.php');
+xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+xhr.send(`token=`+token);
+
 function placeProps(properties, propertyList){
     for (var i = 0; i < properties.length; i++) {
         var property = properties[i];
@@ -110,7 +122,7 @@ function placeProps(properties, propertyList){
             '<p class="property-price">' + formatPrice(property.price) + ' руб.</p>' +
             '</div>' +
             '</a>'+
-            '<button class="edit-button">Ред.</button>';
+            '<button id="edit-button">Ред.</button>';
 
         propertyList.appendChild(propertyElement);
 
@@ -152,6 +164,3 @@ function createSlideshow(propertyElement, images) {
         propertyImg.src = 'uploads/' + images[imageIndex];
     });
 }
-xhr.open('POST', 'get_properties.php');
-xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-xhr.send(`token=`+token);

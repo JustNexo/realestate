@@ -163,6 +163,7 @@ button {
     border: none;
     background-color: red;
     color: white;
+    padding: 0;
     font-size: 16px;
     cursor: pointer;
 }
@@ -261,12 +262,12 @@ button {
 #back-page:hover {
     background-color: #999;
 }
-.edit-button {
+#edit-button {
     float: right;
     margin-bottom: 10px;
     margin-right: 10px;
 }
 
-.edit-button:hover {
+#edit-button:hover {
     background-color: #3e8e41;
 }
